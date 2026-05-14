@@ -1,0 +1,306 @@
+
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-inter), "Noto Sans Thai", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --font-heading: var(--font-outfit), "Noto Sans Thai", ui-sans-serif, system-ui, sans-serif;
+  --color-gold: #ca9b52; /* Primary Gold from previous project */
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
+}
+
+:root {
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.145 0 0);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.145 0 0);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.145 0 0);
+  --primary: oklch(0.205 0 0);
+  --primary-foreground: oklch(0.985 0 0);
+  --secondary: oklch(0.97 0 0);
+  --secondary-foreground: oklch(0.205 0 0);
+  --muted: oklch(0.97 0 0);
+  --muted-foreground: oklch(0.556 0 0);
+  --accent: oklch(0.97 0 0);
+  --accent-foreground: oklch(0.205 0 0);
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: oklch(0.922 0 0);
+  --input: oklch(0.922 0 0);
+  --ring: oklch(0.708 0 0);
+  --chart-1: oklch(0.809 0.105 251.813);
+  --chart-2: oklch(0.623 0.214 259.815);
+  --chart-3: oklch(0.546 0.245 262.881);
+  --chart-4: oklch(0.488 0.243 264.376);
+  --chart-5: oklch(0.424 0.199 265.638);
+  --radius: 0.625rem;
+  --sidebar: oklch(0.985 0 0);
+  --sidebar-foreground: oklch(0.145 0 0);
+  --sidebar-primary: oklch(0.205 0 0);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.97 0 0);
+  --sidebar-accent-foreground: oklch(0.205 0 0);
+  --sidebar-border: oklch(0.922 0 0);
+  --sidebar-ring: oklch(0.708 0 0);
+}
+
+.dark {
+  --background: oklch(0.145 0 0);
+  --foreground: oklch(0.985 0 0);
+  --card: oklch(0.205 0 0);
+  --card-foreground: oklch(0.985 0 0);
+  --popover: oklch(0.205 0 0);
+  --popover-foreground: oklch(0.985 0 0);
+  --primary: oklch(0.922 0 0);
+  --primary-foreground: oklch(0.205 0 0);
+  --secondary: oklch(0.269 0 0);
+  --secondary-foreground: oklch(0.985 0 0);
+  --muted: oklch(0.269 0 0);
+  --muted-foreground: oklch(0.708 0 0);
+  --accent: oklch(0.269 0 0);
+  --accent-foreground: oklch(0.985 0 0);
+  --destructive: oklch(0.704 0.191 22.216);
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: oklch(0.556 0 0);
+  --chart-1: oklch(0.809 0.105 251.813);
+  --chart-2: oklch(0.623 0.214 259.815);
+  --chart-3: oklch(0.546 0.245 262.881);
+  --chart-4: oklch(0.488 0.243 264.376);
+  --chart-5: oklch(0.424 0.199 265.638);
+  --sidebar: oklch(0.205 0 0);
+  --sidebar-foreground: oklch(0.985 0 0);
+  --sidebar-primary: oklch(0.488 0.243 264.376);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.269 0 0);
+  --sidebar-accent-foreground: oklch(0.985 0 0);
+  --sidebar-border: oklch(1 0 0 / 10%);
+  --sidebar-ring: oklch(0.556 0 0);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE/Edge */
+  }
+  body::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera */
+  }
+  html {
+    @apply font-sans;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  html::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* Keep the hero transition clean while leaving the navigation available. */
+body.hero-playing footer {
+  opacity: 0 !important;
+  pointer-events: none !important;
+  transition: none !important;
+}
+
+/* Hide sections below hero so they can't flash during the intro */
+body.hero-playing main > div:not(:first-child) {
+  opacity: 0;
+}
+
+/* Animated gradient border for Early Bird card */
+@property --angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+@keyframes border-spin {
+  from { --angle: 0deg; }
+  to { --angle: 360deg; }
+}
+
+.animate-border-spin {
+  --angle: 0deg;
+  background: conic-gradient(from var(--angle), #FF5A00, #0055FF, #FF5A00, #0055FF, #FF5A00);
+  animation: border-spin 4s linear infinite;
+}
+
+/* ── Hero Register Button ── */
+.hero-register-btn {
+  --btn-transition: 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+
+  cursor: pointer;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 2.25rem;
+  background: linear-gradient(135deg, #c86800 0%, #a04500 100%);
+  border: 1px solid rgba(255, 180, 80, 0.4);
+  border-radius: 9999px;
+  text-decoration: none;
+  box-shadow:
+    0 0 25px rgba(255, 120, 0, 0.3),
+    0 0 60px rgba(255, 90, 0, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15);
+  transition: transform var(--btn-transition), border-color var(--btn-transition), box-shadow var(--btn-transition), background var(--btn-transition);
+  overflow: hidden;
+  animation: hero-btn-pulse 3s ease-in-out infinite;
+}
+
+@keyframes hero-btn-pulse {
+  0%, 100% { box-shadow: 0 0 25px rgba(255, 120, 0, 0.3), 0 0 60px rgba(255, 90, 0, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.15); }
+  50% { box-shadow: 0 0 35px rgba(255, 120, 0, 0.45), 0 0 80px rgba(255, 90, 0, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.2); }
+}
+
+/* Bottom accent line */
+.hero-register-btn::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 15%;
+  width: 70%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(255, 180, 80, 0.5), transparent);
+  border-radius: 1px;
+  z-index: 3;
+  transition: opacity var(--btn-transition);
+}
+
+/* Shimmer sweep */
+.hero-register-btn::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.12) 50%,
+    transparent 100%
+  );
+  border-radius: inherit;
+  z-index: 1;
+  animation: hero-btn-shimmer 4s ease-in-out infinite;
+}
+
+@keyframes hero-btn-shimmer {
+  0%, 100% { left: -100%; }
+  50% { left: 150%; }
+}
+
+.hero-register-btn:hover {
+  border-color: rgba(255, 200, 100, 0.6);
+  transform: scale(1.05);
+  background: linear-gradient(135deg, #e07800 0%, #b85000 100%);
+  box-shadow:
+    0 0 40px rgba(255, 120, 0, 0.5),
+    0 0 80px rgba(255, 90, 0, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  animation: none;
+}
+
+.hero-register-btn:active {
+  transform: scale(0.98);
+}
+
+/* Arrow icon */
+.hero-register-btn__arrow {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hero-register-btn:hover .hero-register-btn__arrow {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateX(3px);
+}
+
+/* Button text */
+.hero-register-btn .text_button {
+  position: relative;
+  z-index: 10;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.85);
+  transition: color var(--btn-transition);
+}
+
+.hero-register-btn:hover .text_button {
+  color: rgba(255, 255, 255, 1);
+}
+
+@media (min-width: 640px) {
+  .hero-register-btn {
+    padding: 1rem 2.5rem;
+  }
+  .hero-register-btn .text_button {
+    font-size: 0.9375rem;
+  }
+  .hero-register-btn__arrow {
+    width: 2.25rem;
+    height: 2.25rem;
+  }
+}
+@media (min-width: 768px) {
+  .hero-register-btn .text_button {
+    font-size: 1.0625rem;
+  }
+}
