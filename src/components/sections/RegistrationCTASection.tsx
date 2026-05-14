@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useRef, useCallback } from "react";
-import { MoveUpRight, Sparkles, ChevronDown } from "lucide-react";
+import { MoveUpRight, Sparkles } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { useParams, useRouter } from "next/navigation";
 import gsap from "gsap";
@@ -408,11 +408,6 @@ export default function RegistrationCTASection() {
               <MoveUpRight className="w-6 h-6 md:w-7 md:h-7" />
             </div>
           </button>
-
-          {/* Payment Method Note */}
-          <div className="flex items-center gap-2 text-black/50 mt-1">
-            <span className="text-sm md:text-base font-medium">{t("paymentNote")}</span>
-          </div>
         </div>
 
         <style dangerouslySetInnerHTML={{__html: `

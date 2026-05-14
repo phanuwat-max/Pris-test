@@ -25,7 +25,7 @@ export default function StickyStackWrapper({
 
       const mm = gsap.matchMedia();
 
-      mm.add("(min-width: 1025px)", () => {
+      mm.add("(min-width: 1280px)", () => {
         // Use GSAP pin to hold the section in place while the next section slides over
         const tl = gsap.to(innerRef.current, {
           scale: 0.85,
@@ -52,10 +52,10 @@ export default function StickyStackWrapper({
   );
 
   return (
-    <div ref={wrapperRef} className="relative w-full min-h-[100svh] lg:h-screen" style={{ zIndex: 1, backgroundColor: "black" }}>
+    <div ref={wrapperRef} className="relative w-full min-h-[100svh] min-[1280px]:h-screen" style={{ zIndex: 1, backgroundColor: "black" }}>
       <div
         ref={innerRef}
-        className="h-full min-h-[100svh] w-full will-change-transform lg:min-h-0"
+        className="h-full min-h-[100svh] w-full will-change-transform min-[1280px]:min-h-0"
         style={{ transformOrigin: "center center" }}
       >
         {children}

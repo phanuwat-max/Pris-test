@@ -81,7 +81,7 @@ export default function PrisIntroSection() {
     <>
     <section
       ref={containerRef}
-      className="relative bg-white text-black pt-28 md:pt-40 pb-12 md:pb-16 overflow-hidden selection:bg-[#0055FF] selection:text-white"
+      className="relative bg-white text-black pt-24 sm:pt-28 md:pt-36 lg:pt-40 pb-12 md:pb-16 overflow-hidden selection:bg-[#0055FF] selection:text-white max-md:landscape:pt-16 max-md:landscape:pb-10"
     >
       {/* Subtle decorative elements */}
       <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-blue-500/[0.04] rounded-full blur-[160px] pointer-events-none" />
@@ -90,8 +90,8 @@ export default function PrisIntroSection() {
       <div className="container mx-auto px-4 md:px-8 max-w-[1600px] relative flex flex-col items-center text-center">
         
         {/* ── TITLE ── */}
-        <div className="pris-title overflow-hidden py-4 -my-4 mb-10 md:mb-16 will-change-transform transform-gpu">
-          <h2 className="text-[clamp(3rem,8vw,10rem)] leading-none font-black tracking-tighter uppercase pr-[0.15em]">
+        <div className="pris-title overflow-hidden py-4 -my-4 mb-8 sm:mb-10 md:mb-14 lg:mb-16 will-change-transform transform-gpu">
+          <h2 className="whitespace-nowrap text-[clamp(2.35rem,11vw,3.5rem)] leading-none font-black tracking-tighter uppercase sm:text-[clamp(3.5rem,9.6vw,4.5rem)] md:text-[clamp(4.8rem,9vw,6.4rem)] lg:text-[clamp(6.2rem,8vw,8rem)] xl:text-[10rem] max-md:landscape:text-[3.25rem]">
             {titleSegments.map((char, i) => (
                 <span key={i} className="pris-char inline-block">
                   {char === " " ? "\u00A0" : char}
@@ -101,10 +101,10 @@ export default function PrisIntroSection() {
         </div>
 
         {/* ── BODY: Centered Editorial ── */}
-        <div className="pris-body-wrap max-w-4xl mx-auto flex flex-col gap-6 lg:gap-10 mb-16 md:mb-20 will-change-transform transform-gpu">
+        <div className="pris-body-wrap max-w-4xl mx-auto flex flex-col gap-5 sm:gap-6 lg:gap-10 mb-12 sm:mb-16 md:mb-20 will-change-transform transform-gpu">
           <div className="overflow-hidden py-2 -my-2 flex justify-center">
             <p
-              className="pris-body-line text-xl md:text-2xl lg:text-3xl font-light leading-[1.6] tracking-tight text-black/80 inline-block"
+              className="pris-body-line text-lg sm:text-xl md:text-2xl lg:text-3xl font-light leading-[1.6] tracking-tight text-black/80 inline-block"
               dangerouslySetInnerHTML={{ __html: t.raw("intro") }}
             />
           </div>
@@ -116,18 +116,18 @@ export default function PrisIntroSection() {
         </div>
 
         {/* ── STATS ROW: White ── */}
-        <div className="pris-stats w-full grid grid-cols-1 sm:grid-cols-3 gap-0 border-t border-black/10">
+        <div className="pris-stats w-full grid grid-cols-1 md:grid-cols-3 gap-0 border-t border-black/10">
 
           {/* Stat 1: Participants */}
-          <div className="pris-stat group flex flex-col items-center text-center pt-14 pb-8 md:pt-20 md:pb-12 border-b sm:border-b-0 sm:border-r border-black/10">
+          <div className="pris-stat group flex flex-col items-center text-center pt-12 pb-8 md:pt-20 md:pb-12 border-b md:border-b-0 md:border-r border-black/10">
             <p
-              className="stat-number text-7xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-[7.5rem] font-black tracking-tighter leading-none text-black"
+              className="stat-number text-5xl min-[380px]:text-6xl sm:text-7xl md:text-6xl lg:text-7xl xl:text-[7.5rem] font-black tracking-tighter leading-none text-black"
             >
               <CountUp text={t("stat1Value")} duration={2500} />
             </p>
 
             {/* Icon: Network/People */}
-            <div className="mt-8 mb-5 w-20 h-20 md:w-28 md:h-28 flex items-center justify-center">
+            <div className="mt-7 mb-5 w-20 h-20 md:mt-8 md:w-28 md:h-28 flex items-center justify-center">
               <svg viewBox="0 0 80 80" fill="none" className="w-full h-full text-black/70">
                 {/* Central person */}
                 <circle cx="40" cy="24" r="5" stroke="currentColor" strokeWidth="1.8"/>
@@ -158,15 +158,15 @@ export default function PrisIntroSection() {
           </div>
 
           {/* Stat 2: Exhibition Booths */}
-          <div className="pris-stat group flex flex-col items-center text-center pt-14 pb-8 md:pt-20 md:pb-12 border-b sm:border-b-0 sm:border-r border-black/10">
+          <div className="pris-stat group flex flex-col items-center text-center pt-12 pb-8 md:pt-20 md:pb-12 border-b md:border-b-0 md:border-r border-black/10">
             <p
-              className="stat-number text-7xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-[7.5rem] font-black tracking-tighter leading-none text-black"
+              className="stat-number text-5xl min-[380px]:text-6xl sm:text-7xl md:text-6xl lg:text-7xl xl:text-[7.5rem] font-black tracking-tighter leading-none text-black"
             >
               <CountUp text={t("stat2Value")} duration={1500} />
             </p>
 
             {/* Icon: Exhibition Booth */}
-            <div className="mt-8 mb-5 w-20 h-20 md:w-28 md:h-28 flex items-center justify-center">
+            <div className="mt-7 mb-5 w-20 h-20 md:mt-8 md:w-28 md:h-28 flex items-center justify-center">
               <svg viewBox="0 0 80 80" fill="none" className="w-full h-full text-black/70">
                 {/* Canopy roof */}
                 <path d="M18 24L40 12L62 24" stroke="currentColor" strokeWidth="1.8" strokeLinejoin="round"/>
@@ -193,15 +193,15 @@ export default function PrisIntroSection() {
           </div>
 
           {/* Stat 3: Networking Night */}
-          <div className="pris-stat group flex flex-col items-center text-center pt-14 pb-8 md:pt-20 md:pb-12">
+          <div className="pris-stat group flex flex-col items-center text-center pt-12 pb-8 md:pt-20 md:pb-12">
             <p
-              className="stat-number text-7xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-[7.5rem] font-black tracking-tighter leading-none text-black"
+              className="stat-number text-5xl min-[380px]:text-6xl sm:text-7xl md:text-6xl lg:text-7xl xl:text-[7.5rem] font-black tracking-tighter leading-none text-black"
             >
               <CountUp text={t("stat3Value")} duration={1000} />
             </p>
 
             {/* Icon: Wine glasses / Networking */}
-            <div className="mt-8 mb-5 w-20 h-20 md:w-28 md:h-28 flex items-center justify-center">
+            <div className="mt-7 mb-5 w-20 h-20 md:mt-8 md:w-28 md:h-28 flex items-center justify-center">
               <svg viewBox="0 0 80 80" fill="none" className="w-full h-full text-black/70">
                 {/* Board / Poster frame */}
                 <rect x="20" y="16" width="40" height="32" rx="2" stroke="currentColor" strokeWidth="1.8" fill="none"/>

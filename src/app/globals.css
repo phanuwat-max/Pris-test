@@ -140,16 +140,18 @@
   }
 }
 
-/* Keep the hero transition clean while leaving the navigation available. */
-body.hero-playing footer {
-  opacity: 0 !important;
-  pointer-events: none !important;
-  transition: none !important;
-}
+@media (min-width: 1280px) {
+  /* Keep the hero transition clean while leaving the navigation available. */
+  body.hero-playing footer {
+    opacity: 0 !important;
+    pointer-events: none !important;
+    transition: none !important;
+  }
 
-/* Hide sections below hero so they can't flash during the intro */
-body.hero-playing main > div:not(:first-child) {
-  opacity: 0;
+  /* Hide sections below hero so they can't flash during the intro */
+  body.hero-playing main > div:not(:first-child) {
+    opacity: 0;
+  }
 }
 
 /* Animated gradient border for Early Bird card */

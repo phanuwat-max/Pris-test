@@ -2,66 +2,41 @@
 
 import React, { useEffect } from "react";
 import Image from "next/image";
+import Countdown from "@/components/elements/Countdown";
 import { Link } from "@/i18n/routing";
 import {
+  ArrowRight,
   CalendarDays,
-  FlaskConical,
-  Handshake,
-  Leaf,
-  Lightbulb,
   MapPin,
-  Microscope,
-  Users,
 } from "lucide-react";
-
-const actionChips = [
-  { label: "Discover", href: "/about" },
-  { label: "Connect", href: "/contact" },
-  { label: "Collaborate", href: "/sponsorship" },
-  { label: "Innovate", href: "/call-for-abstracts" },
-] as const;
-
-const pillars = [
-  {
-    title: "Research",
-    description: "Advancing evidence and scientific discovery",
-    icon: Microscope,
-  },
-  {
-    title: "Innovation",
-    description: "Transforming pharmacy through technology and creativity",
-    icon: Lightbulb,
-  },
-  {
-    title: "Sustainability",
-    description: "Building accessible and future-ready health care systems",
-    icon: Leaf,
-  },
-  {
-    title: "Collaboration",
-    description: "Connecting minds. Creating impact. Building the future.",
-    icon: Handshake,
-  },
-] as const;
 
 export default function Hero() {
   useEffect(() => {
+    const desktopQuery = window.matchMedia("(min-width: 1280px)");
+
     const syncChromeVisibility = () => {
+      if (!desktopQuery.matches) {
+        document.body.classList.remove("hero-playing");
+        return;
+      }
+
       const shouldHideChrome = window.scrollY < Math.min(window.innerHeight * 0.65, 640);
       document.body.classList.toggle("hero-playing", shouldHideChrome);
     };
 
     syncChromeVisibility();
     window.addEventListener("scroll", syncChromeVisibility, { passive: true });
+    desktopQuery.addEventListener("change", syncChromeVisibility);
 
     return () => {
       window.removeEventListener("scroll", syncChromeVisibility);
+      desktopQuery.removeEventListener("change", syncChromeVisibility);
       document.body.classList.remove("hero-playing");
     };
   }, []);
 
   return (
-    <section className="relative isolate flex min-h-[100svh] w-full overflow-hidden bg-[#04050d] text-white lg:h-full">
+    <section className="font-heading relative isolate flex min-h-[100svh] w-full overflow-x-hidden bg-[#04050d] text-white min-[1280px]:h-full xl:overflow-hidden">
       <Image
         src="/assets/Img/BG/BG new.jpg"
         alt=""
@@ -88,128 +63,115 @@ export default function Hero() {
         }}
       />
 
-      <div className="relative z-[2] mx-auto flex min-h-[100svh] w-full max-w-[1920px] flex-col px-5 pb-6 pt-20 sm:px-8 md:px-12 lg:h-full lg:min-h-0 lg:px-[8vw] lg:pb-[2.2vh] lg:pt-[5.6rem]">
-        <div className="flex min-h-0 flex-1 flex-col lg:max-w-[52vw]">
-          <div className="flex items-start gap-4 sm:gap-6 lg:gap-5">
-            <div className="relative h-16 w-16 sm:h-20 sm:w-20 lg:h-[5.2vw] lg:w-[5.2vw] lg:max-h-[74px] lg:max-w-[74px]">
+      <div className="relative z-[2] mx-auto flex min-h-[100svh] w-full max-w-[1920px] flex-col px-4 pb-6 pt-16 sm:px-8 sm:pt-20 md:px-10 md:pb-[7vh] md:pt-[7vh] md:portrait:px-[5.2vw] md:portrait:pb-[2.6vh] md:portrait:pt-[7.2vh] min-[1280px]:h-full min-[1280px]:min-h-0 min-[1280px]:px-[8vw] min-[1280px]:pb-[2.2vh] min-[1280px]:pt-[5.6rem] min-[1280px]:max-[1439px]:landscape:pt-[9.2rem] max-md:landscape:pb-5 max-md:landscape:pt-12">
+        <div className="mx-auto flex w-full flex-col md:max-w-[820px] md:portrait:max-w-none min-[1280px]:mx-0 min-[1280px]:max-w-[58vw]">
+          <div className="flex items-start gap-4 sm:gap-6 lg:gap-5 md:portrait:gap-5 max-md:landscape:gap-3">
+            <div className="relative h-16 w-16 sm:h-[5.25rem] sm:w-[5.25rem] md:portrait:h-[4.6rem] md:portrait:w-[4.6rem] lg:h-[5.5vw] lg:w-[5.5vw] lg:max-h-[84px] lg:max-w-[84px] max-md:landscape:h-12 max-md:landscape:w-12">
               <Image
                 src="/assets/Img/sponsors/Logo_Pharmacycouncil_2568_2-2_Artboard 2.png"
                 alt="The Pharmacy Council of Thailand"
                 fill
-                sizes="96px"
+                sizes="112px"
                 className="object-contain drop-shadow-[0_0_14px_rgba(255,255,255,0.18)]"
               />
             </div>
-            <div className="relative h-16 w-16 sm:h-20 sm:w-20 lg:h-[5.2vw] lg:w-[5.2vw] lg:max-h-[74px] lg:max-w-[74px]">
+            <div className="relative h-16 w-16 sm:h-[5.25rem] sm:w-[5.25rem] md:portrait:h-[4.6rem] md:portrait:w-[4.6rem] lg:h-[5.5vw] lg:w-[5.5vw] lg:max-h-[84px] lg:max-w-[84px] max-md:landscape:h-12 max-md:landscape:w-12">
               <Image
                 src="/assets/Img/sponsors/Logo_ราชวิทยาลัยเภสัชกรรมแห่งประเทศไทย_2-02.png"
                 alt="Royal College of Pharmacy of Thailand"
                 fill
-                sizes="96px"
-                className="object-contain drop-shadow-[0_0_14px_rgba(255,255,255,0.18)]"
+                sizes="112px"
+                className="scale-[1.35] object-contain drop-shadow-[0_0_14px_rgba(255,255,255,0.18)]"
               />
             </div>
           </div>
 
-          <div className="-ml-7 mt-7 sm:-ml-10 sm:mt-9 lg:-ml-[3vw] lg:mt-[1.8vh]">
+          <div className="-ml-4 mt-6 sm:-ml-10 sm:mt-9 lg:-ml-[3vw] lg:mt-[1.6vh] md:portrait:-ml-[1.8vw] md:portrait:mt-[2.8vh] min-[1280px]:portrait:mt-[1.6vh] max-md:landscape:mt-3">
             <Image
               src="/assets/Img/logo/LOGO1.png"
               alt="2nd PRIS 2026 Pharmacy Research and Innovation Summit"
               width={982}
               height={268}
               priority
-              className="h-auto w-full max-w-[580px] sm:max-w-[760px] lg:max-w-[min(43vw,660px)] drop-shadow-[0_0_24px_rgba(71,139,255,0.34)]"
+              className="h-auto w-full max-w-[min(94vw,620px)] sm:max-w-[780px] md:portrait:max-w-[min(88vw,900px)] lg:max-w-[min(50vw,780px)] max-md:landscape:max-w-[360px] drop-shadow-[0_0_24px_rgba(71,139,255,0.34)]"
             />
           </div>
 
-          <div className="mt-9 sm:mt-12 lg:mt-[2.8vh]">
-            <h1 className="max-w-[880px] text-[2rem] font-black uppercase leading-[1.18] tracking-[0.07em] text-white sm:text-[2.65rem] md:text-[3.1rem] lg:text-[clamp(2rem,2.2vw,2.7rem)]">
+          <div className="mt-7 sm:mt-10 lg:mt-[2.2vh] md:portrait:mt-[4.1vh] min-[1280px]:portrait:mt-[2.2vh] max-md:landscape:mt-4">
+            <h1 className="max-w-[1060px] text-[1.85rem] font-black uppercase leading-[1.14] tracking-[0.07em] text-white min-[380px]:text-[2.1rem] sm:text-[2.65rem] md:text-[3.05rem] md:portrait:text-[clamp(2.75rem,5.3vw,3.55rem)] lg:text-[clamp(2.05rem,2.25vw,2.95rem)] max-md:landscape:text-[1.45rem] max-md:landscape:leading-[1.08]">
               Pharmacy Research & Innovation
               <span className="block">Driving Sustainable Healthcare</span>
             </h1>
           </div>
 
-          <div className="mt-8 flex flex-wrap gap-3 sm:gap-4 lg:mt-[2.4vh] lg:gap-3">
-            {actionChips.map((chip) => (
-              <Link
-                key={chip.label}
-                href={chip.href}
-                className="group relative inline-flex min-h-11 items-center justify-center rounded-full border border-[#51b8ff]/50 bg-[#062b58]/80 px-6 text-[0.95rem] font-bold uppercase tracking-[0.12em] text-white shadow-[inset_0_1px_8px_rgba(255,255,255,0.25),0_0_18px_rgba(0,145,255,0.34)] transition duration-300 hover:border-white/75 hover:bg-[#0a4f8f] lg:min-h-10 lg:px-5 lg:text-[0.78rem]"
-              >
-                <span className="absolute inset-x-5 bottom-0 h-px bg-cyan-200/90 blur-[1px] transition group-hover:bg-white" />
-                {chip.label}
-              </Link>
-            ))}
-          </div>
-
-          <div className="mt-9 grid gap-6 text-white sm:grid-cols-[0.75fr_1.25fr] md:grid-cols-[0.8fr_1.55fr_1.35fr] lg:mt-[3.4vh] lg:gap-5">
+          <div className="mt-7 grid gap-6 text-white sm:grid-cols-[0.75fr_1.25fr] lg:mt-[2.8vh] lg:gap-6 md:portrait:mt-[4.1vh] md:portrait:grid-cols-[0.7fr_1.3fr] md:portrait:gap-8 min-[1280px]:portrait:mt-[2.8vh] max-md:landscape:mt-4 max-md:landscape:grid-cols-[0.75fr_1.25fr] max-md:landscape:gap-4">
             <div className="flex items-start gap-3">
-              <CalendarDays className="mt-1 h-6 w-6 shrink-0 text-[#168fff] lg:h-5 lg:w-5" />
+              <CalendarDays className="mt-1 h-6 w-6 shrink-0 text-[#168fff] md:portrait:h-7 md:portrait:w-7 lg:h-5 lg:w-5 max-md:landscape:h-4 max-md:landscape:w-4" />
               <div className="uppercase">
-                <p className="text-[2rem] font-black leading-none tracking-[0.04em] text-[#168fff] sm:text-[2.35rem] lg:text-[1.75rem]">
+                <p className="text-[2rem] font-black leading-none tracking-[0.04em] text-[#168fff] sm:text-[2.45rem] md:portrait:text-[2.55rem] lg:text-[1.95rem] max-md:landscape:text-[1.35rem]">
                   29-30
                 </p>
-                <p className="mt-1 text-[0.86rem] font-bold leading-none tracking-[0.08em] text-[#168fff] lg:text-[0.7rem]">
+                <p className="mt-1 text-[0.82rem] font-bold leading-none tracking-[0.08em] text-[#168fff] sm:text-[0.9rem] md:portrait:text-[0.92rem] lg:text-[0.76rem] max-md:landscape:text-[0.58rem]">
                   October
                 </p>
-                <p className="mt-1 text-[2rem] font-black leading-none tracking-[0.04em] sm:text-[2.35rem] lg:text-[1.75rem]">
+                <p className="mt-1 text-[2rem] font-black leading-none tracking-[0.04em] sm:text-[2.45rem] md:portrait:text-[2.55rem] lg:text-[1.95rem] max-md:landscape:text-[1.35rem]">
                   2026
                 </p>
               </div>
             </div>
 
             <div className="flex items-start gap-3">
-              <MapPin className="mt-1 h-6 w-6 shrink-0 text-[#168fff] lg:h-5 lg:w-5" />
+              <MapPin className="mt-1 h-6 w-6 shrink-0 text-[#168fff] md:portrait:h-7 md:portrait:w-7 lg:h-5 lg:w-5 max-md:landscape:h-4 max-md:landscape:w-4" />
               <div>
-                <p className="text-[1.35rem] font-bold uppercase leading-tight tracking-[0.13em] text-[#168fff] sm:text-[1.65rem] lg:text-[1.18rem]">
+                <p className="text-[1.25rem] font-bold uppercase leading-tight tracking-[0.13em] text-[#168fff] sm:text-[1.55rem] md:text-[1.7rem] md:portrait:text-[1.85rem] lg:text-[1.25rem] max-md:landscape:text-[0.9rem]">
                   Jupiter Room 4-13
                 </p>
-                <p className="mt-3 text-sm font-medium uppercase leading-relaxed tracking-[0.07em] text-white/90 sm:text-base lg:mt-2 lg:text-[0.82rem]">
+                <p className="mt-3 text-sm font-bold uppercase leading-relaxed tracking-[0.07em] text-white/90 sm:text-base md:portrait:text-[1.05rem] lg:mt-2 lg:text-[0.9rem] max-md:landscape:mt-1 max-md:landscape:text-[0.68rem]">
                   Impact Muang Thong Thani
                   <span className="block">Nonthaburi, Thailand</span>
                 </p>
               </div>
             </div>
 
-            <div className="flex items-start gap-3 sm:col-span-2 md:col-span-1">
-              <Users className="mt-1 h-6 w-6 shrink-0 text-[#168fff] lg:h-5 lg:w-5" />
-              <div>
-                <p className="text-[1.25rem] font-bold uppercase leading-tight tracking-[0.13em] text-[#168fff] sm:text-[1.5rem] lg:text-[1.1rem]">
-                  Pharmacists Researchers
-                </p>
-                <p className="mt-3 text-sm font-medium uppercase leading-relaxed tracking-[0.04em] text-white/90 sm:text-base lg:mt-2 lg:text-[0.82rem]">
-                  • Students • Industry Leaders
-                  <span className="block">• Healthcare Professionals</span>
-                </p>
-              </div>
-            </div>
           </div>
 
-          <div className="mt-8 lg:hidden" />
+          <div className="mt-7 grid w-full max-w-[760px] grid-cols-1 gap-4 sm:grid-cols-2 md:portrait:mt-[4.6vh] md:portrait:max-w-none md:portrait:gap-5 min-[1280px]:mt-[2.8vh] max-md:landscape:mt-4 max-md:landscape:grid-cols-2 max-md:landscape:gap-3">
+            <Link
+              href="/registration"
+              className="group relative grid min-h-[64px] grid-cols-[1.75rem_1fr_1.75rem] items-center gap-3 overflow-hidden rounded-full border border-[#ff8a24] bg-[#ff6a00] px-5 text-center text-[0.8rem] font-black uppercase tracking-[0.16em] text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.26),inset_0_-18px_38px_rgba(140,43,0,0.22),0_0_30px_rgba(255,112,20,0.38),0_14px_34px_rgba(0,0,0,0.42)] transition duration-300 hover:-translate-y-1 hover:scale-[1.02] hover:border-[#ffc078] hover:bg-[#ff7a1a] hover:shadow-[inset_0_1px_0_rgba(255,255,255,0.32),inset_0_-18px_42px_rgba(140,43,0,0.24),0_0_48px_rgba(255,122,26,0.62),0_18px_42px_rgba(0,0,0,0.5)] active:translate-y-0 active:scale-[0.99] sm:min-h-[76px] sm:grid-cols-[2rem_1fr_2rem] sm:gap-4 sm:px-7 sm:text-base sm:tracking-[0.2em] md:portrait:min-h-[70px] lg:min-h-[72px] max-md:landscape:min-h-[52px] max-md:landscape:text-[0.68rem]"
+            >
+              <span className="absolute inset-0 rounded-full bg-[radial-gradient(circle_at_50%_0%,rgba(255,221,177,0.52),transparent_58%)]" />
+              <span className="absolute inset-x-8 bottom-0 h-px bg-gradient-to-r from-transparent via-white to-transparent opacity-75 transition group-hover:via-[#07101f]" />
+              <span className="absolute -left-1/3 top-0 h-full w-1/3 skew-x-[-18deg] bg-white/26 opacity-0 blur-sm transition duration-700 group-hover:left-[115%] group-hover:opacity-100" />
+              <span className="relative justify-self-start h-2 w-2 rounded-full bg-white opacity-85 shadow-[0_0_18px_rgba(255,255,255,0.9)] transition group-hover:scale-[1.7] group-hover:opacity-100" />
+              <span className="relative justify-self-center whitespace-nowrap drop-shadow-[0_0_12px_rgba(100,28,0,0.32)]">Register Now</span>
+              <span className="relative flex h-7 w-7 items-center justify-center justify-self-end rounded-full border border-white/18 bg-white text-[#ff6a00] shadow-[0_0_16px_rgba(255,255,255,0.28)] transition duration-300 group-hover:translate-x-1 group-hover:bg-[#07101f] group-hover:text-white sm:h-8 sm:w-8">
+                <ArrowRight className="h-4 w-4" />
+              </span>
+            </Link>
+            <Link
+              href="/call-for-abstracts"
+              className="group relative grid min-h-[64px] grid-cols-[1.75rem_1fr_1.75rem] items-center gap-3 overflow-hidden rounded-full border border-white/85 bg-white px-5 text-center text-[0.8rem] font-black uppercase tracking-[0.16em] text-[#07101f] shadow-[inset_0_1px_0_rgba(255,255,255,0.95),0_0_30px_rgba(255,255,255,0.24),0_14px_34px_rgba(0,0,0,0.42)] transition duration-300 hover:-translate-y-1 hover:scale-[1.02] hover:border-white hover:bg-[#f5fbff] hover:shadow-[inset_0_1px_0_rgba(255,255,255,1),0_0_42px_rgba(255,255,255,0.38),0_18px_42px_rgba(0,0,0,0.5)] active:translate-y-0 active:scale-[0.99] sm:min-h-[76px] sm:grid-cols-[2rem_1fr_2rem] sm:gap-4 sm:px-7 sm:text-base sm:tracking-[0.2em] md:portrait:min-h-[70px] lg:min-h-[72px] max-md:landscape:min-h-[52px] max-md:landscape:text-[0.68rem]"
+            >
+              <span className="absolute inset-0 rounded-full bg-[radial-gradient(circle_at_50%_0%,rgba(255,255,255,0.92),rgba(214,238,255,0.55)_48%,transparent_72%)]" />
+              <span className="absolute inset-x-8 bottom-0 h-px bg-gradient-to-r from-transparent via-[#168fff] to-transparent opacity-80 transition group-hover:via-[#ff7a1a]" />
+              <span className="absolute -left-1/3 top-0 h-full w-1/3 skew-x-[-18deg] bg-[#168fff]/22 opacity-0 blur-sm transition duration-700 group-hover:left-[115%] group-hover:opacity-100" />
+              <span className="relative justify-self-start h-2 w-2 rounded-full bg-[#168fff] opacity-80 shadow-[0_0_18px_rgba(22,143,255,0.9)] transition group-hover:scale-[1.7] group-hover:opacity-100" />
+              <span className="relative justify-self-center whitespace-nowrap drop-shadow-[0_1px_0_rgba(255,255,255,0.65)]">Submit Abstract</span>
+              <span className="relative flex h-7 w-7 items-center justify-center justify-self-end rounded-full border border-[#07101f]/10 bg-[#07101f] text-white shadow-[0_0_16px_rgba(22,143,255,0.25)] transition duration-300 group-hover:translate-x-1 group-hover:bg-[#168fff] sm:h-8 sm:w-8">
+                <ArrowRight className="h-4 w-4" />
+              </span>
+            </Link>
+          </div>
+
         </div>
 
-        <div className="mt-7 rounded-[2.8rem] border border-white/5 bg-black/82 px-5 py-5 shadow-[0_0_34px_rgba(0,120,255,0.3),inset_0_-8px_20px_rgba(0,87,174,0.38)] backdrop-blur-sm sm:px-8 lg:mt-4 lg:rounded-[2rem] lg:px-6 lg:py-4">
-          <div className="grid gap-5 sm:grid-cols-2 xl:grid-cols-4 lg:gap-4">
-            {pillars.map((pillar) => {
-              const Icon = pillar.icon;
-
-              return (
-                <div key={pillar.title} className="flex min-w-0 items-center gap-4">
-                  <div className="relative flex h-16 w-16 shrink-0 items-center justify-center rounded-full bg-[radial-gradient(circle_at_35%_25%,#fff4bf_0%,#db7a42_36%,#29213a_72%,#0a1531_100%)] shadow-[0_0_20px_rgba(255,134,55,0.46)] sm:h-[74px] sm:w-[74px] lg:h-12 lg:w-12">
-                    <FlaskConical className="absolute h-7 w-7 text-white/18 lg:h-5 lg:w-5" />
-                    <Icon className="relative h-8 w-8 text-white drop-shadow-[0_0_8px_rgba(255,255,255,0.55)] lg:h-6 lg:w-6" />
-                  </div>
-                  <div className="min-w-0">
-                    <h2 className="text-[1.05rem] font-black uppercase leading-tight tracking-[0.08em] text-[#ff8238] sm:text-[1.28rem] lg:text-[0.95rem]">
-                      {pillar.title}
-                    </h2>
-                    <p className="mt-1.5 text-sm font-medium leading-snug text-white/88 lg:text-[0.78rem]">
-                      {pillar.description}
-                    </p>
-                  </div>
-                </div>
-              );
-            })}
+        <div className="relative mt-14 w-full px-1 py-4 sm:mt-auto sm:px-5 sm:py-5 md:portrait:pb-[1.8vh] min-[1280px]:mt-[clamp(1.75rem,3.8vh,3.5rem)] min-[1280px]:mb-3 min-[1280px]:max-[1439px]:landscape:mt-[6vh] max-md:landscape:mt-8 max-md:landscape:py-2">
+          <div className="relative flex flex-col items-center gap-3 max-md:landscape:gap-2">
+            <p className="text-center text-[0.62rem] font-black uppercase tracking-[0.26em] text-white/58 sm:text-[0.68rem] sm:tracking-[0.34em] max-md:landscape:text-[0.52rem]">
+              Countdown to PRIS 2026
+            </p>
+            <Countdown className="mx-auto" />
           </div>
         </div>
       </div>

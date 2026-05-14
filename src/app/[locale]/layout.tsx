@@ -35,7 +35,8 @@ export default async function LocaleLayout({
               window.scrollTo(0,0);
               
               const p = window.location.pathname.replace(/\\/$/, "");
-              if (p === "" || p === "/en" || p === "/th") {
+              const desktopHeroTransition = window.matchMedia("(min-width: 1280px)").matches;
+              if (desktopHeroTransition && (p === "" || p === "/en" || p === "/th")) {
                 document.body.classList.add("hero-playing");
               }
             `,
