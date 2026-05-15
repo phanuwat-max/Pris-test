@@ -104,33 +104,33 @@ export default function Hero() {
             </h1>
           </div>
 
-          <div className="mt-7 flex w-full max-w-[860px] flex-col gap-4 text-white sm:flex-row sm:items-center sm:gap-6 lg:mt-[2.8vh] lg:max-w-[780px] lg:gap-5 md:portrait:mt-[4.1vh] md:portrait:max-w-none md:portrait:gap-7 min-[1280px]:portrait:mt-[2.8vh] max-md:landscape:mt-4 max-md:landscape:flex-row max-md:landscape:items-center max-md:landscape:gap-3">
-            <div className="flex min-w-0 items-center gap-3 max-md:landscape:gap-2">
-              <CalendarDays aria-hidden="true" className="h-5 w-5 shrink-0 text-[#168fff] md:portrait:h-6 md:portrait:w-6 lg:h-5 lg:w-5 max-md:landscape:h-4 max-md:landscape:w-4" />
+          <div className="mt-7 flex w-full max-w-[860px] flex-col gap-4 text-white sm:flex-row sm:items-center sm:gap-6 lg:mt-[2.8vh] lg:max-w-[780px] lg:gap-5 md:portrait:mt-[3.4vh] md:portrait:max-w-none md:portrait:gap-5 min-[1280px]:portrait:mt-[2.8vh] max-md:landscape:mt-4 max-md:landscape:flex-row max-md:landscape:items-center max-md:landscape:gap-3">
+            <div className="flex min-w-0 items-center gap-3 md:portrait:gap-2.5 max-md:landscape:gap-2">
+              <CalendarDays aria-hidden="true" className="h-5 w-5 shrink-0 text-[#168fff] md:portrait:h-5 md:portrait:w-5 lg:h-5 lg:w-5 max-md:landscape:h-4 max-md:landscape:w-4" />
               <div className="min-w-0 uppercase">
-                <p className="flex flex-nowrap items-baseline gap-2 whitespace-nowrap leading-none text-[#168fff] sm:gap-2.5 max-md:landscape:gap-1.5">
-                  <span className="text-[1.12rem] font-black tracking-[0.14em] sm:text-[1.35rem] md:text-[1.48rem] md:portrait:text-[1.62rem] lg:text-[1.12rem] max-md:landscape:text-[0.78rem]">
+                <p className="flex flex-nowrap items-baseline gap-2 whitespace-nowrap leading-none text-[#168fff] sm:gap-2.5 md:portrait:gap-1.5 max-md:landscape:gap-1.5">
+                  <span className="text-[1.12rem] font-black tracking-[0.14em] sm:text-[1.35rem] md:text-[1.48rem] md:portrait:text-[1.34rem] md:portrait:tracking-[0.1em] lg:text-[1.12rem] max-md:landscape:text-[0.78rem]">
                     29-30
                   </span>
-                  <span className="text-[1.12rem] font-black tracking-[0.14em] sm:text-[1.35rem] md:text-[1.48rem] md:portrait:text-[1.62rem] lg:text-[1.12rem] max-md:landscape:text-[0.78rem]">
+                  <span className="text-[1.12rem] font-black tracking-[0.14em] sm:text-[1.35rem] md:text-[1.48rem] md:portrait:text-[1.34rem] md:portrait:tracking-[0.1em] lg:text-[1.12rem] max-md:landscape:text-[0.78rem]">
                     October
                   </span>
-                  <span className="text-[1.12rem] font-black tracking-[0.14em] text-white sm:text-[1.35rem] md:text-[1.48rem] md:portrait:text-[1.62rem] lg:text-[1.12rem] max-md:landscape:text-[0.78rem]">
+                  <span className="text-[1.12rem] font-black tracking-[0.14em] text-white sm:text-[1.35rem] md:text-[1.48rem] md:portrait:text-[1.34rem] md:portrait:tracking-[0.1em] lg:text-[1.12rem] max-md:landscape:text-[0.78rem]">
                     2026
                   </span>
                 </p>
               </div>
             </div>
 
-            <div className="hidden h-11 w-px shrink-0 bg-gradient-to-b from-transparent via-white/28 to-transparent sm:block max-md:landscape:block max-md:landscape:h-8" />
+            <div className="hidden h-11 w-px shrink-0 bg-gradient-to-b from-transparent via-white/28 to-transparent sm:block md:portrait:hidden max-md:landscape:block max-md:landscape:h-8" />
 
-            <div className="flex min-w-0 items-center gap-3 max-md:landscape:gap-2">
-              <MapPin aria-hidden="true" className="h-5 w-5 shrink-0 text-[#168fff] md:portrait:h-6 md:portrait:w-6 lg:h-5 lg:w-5 max-md:landscape:h-4 max-md:landscape:w-4" />
+            <div className="flex min-w-0 items-center gap-3 md:portrait:gap-2.5 max-md:landscape:gap-2">
+              <MapPin aria-hidden="true" className="h-5 w-5 shrink-0 text-[#168fff] md:portrait:h-5 md:portrait:w-5 lg:h-5 lg:w-5 max-md:landscape:h-4 max-md:landscape:w-4" />
               <div className="min-w-0 uppercase">
-                <p className="whitespace-nowrap text-[1.12rem] font-black leading-none tracking-[0.14em] text-[#168fff] sm:text-[1.35rem] md:text-[1.48rem] md:portrait:text-[1.62rem] lg:text-[1.12rem] max-md:landscape:text-[0.78rem]">
+                <p className="whitespace-nowrap text-[1.12rem] font-black leading-none tracking-[0.14em] text-[#168fff] sm:text-[1.35rem] md:text-[1.48rem] md:portrait:text-[1.34rem] md:portrait:tracking-[0.1em] lg:text-[1.12rem] max-md:landscape:text-[0.78rem]">
                   Jupiter Room 4-13
                 </p>
-                <p className="mt-2 text-sm font-black leading-snug tracking-[0.08em] text-white/90 sm:text-[0.9rem] md:portrait:text-[1rem] lg:text-[0.78rem] max-md:landscape:mt-1 max-md:landscape:text-[0.58rem]">
+                <p className="mt-2 text-sm font-black leading-snug tracking-[0.08em] text-white/90 sm:text-[0.9rem] md:portrait:mt-1.5 md:portrait:text-[0.78rem] md:portrait:tracking-[0.06em] lg:text-[0.78rem] max-md:landscape:mt-1 max-md:landscape:text-[0.58rem]">
                   Impact Muang Thong Thani
                   <span className="block">Nonthaburi, Thailand</span>
                 </p>
