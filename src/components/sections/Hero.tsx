@@ -38,7 +38,7 @@ export default function Hero() {
   return (
     <section className="font-heading relative isolate flex min-h-[100svh] w-full overflow-x-hidden bg-[#04050d] text-white min-[1280px]:h-full xl:overflow-hidden">
       <Image
-        src="/assets/Img/BG/BG new.jpg"
+        src="/assets/Img/BG/BG-new2.jpg"
         alt=""
         fill
         priority
