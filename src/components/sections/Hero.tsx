@@ -65,19 +65,19 @@ export default function Hero() {
 
       <div className="relative z-[2] mx-auto flex min-h-[100svh] w-full max-w-[1920px] flex-col px-4 pb-6 pt-16 sm:px-8 sm:pt-20 md:px-10 md:pb-[7vh] md:pt-[7vh] md:portrait:px-[5.2vw] md:portrait:pb-[2.6vh] md:portrait:pt-[7.2vh] min-[1280px]:h-full min-[1280px]:min-h-0 min-[1280px]:px-[8vw] min-[1280px]:pb-[2.2vh] min-[1280px]:pt-[5.6rem] min-[1280px]:max-[1439px]:landscape:pt-[9.2rem] max-md:landscape:pb-5 max-md:landscape:pt-12">
         <div className="mx-auto flex w-full flex-col md:max-w-[820px] md:portrait:max-w-none min-[1280px]:mx-0 min-[1280px]:max-w-[58vw]">
-          <div className="flex items-start gap-4 sm:gap-6 lg:gap-5 md:portrait:gap-5 max-md:landscape:gap-3">
+          <div className="flex translate-y-6 items-start gap-4 sm:gap-6 lg:gap-5 md:portrait:gap-5 max-md:landscape:translate-y-3 max-md:landscape:gap-3">
             <div className="relative h-16 w-16 sm:h-[5.25rem] sm:w-[5.25rem] md:portrait:h-[4.6rem] md:portrait:w-[4.6rem] lg:h-[5.5vw] lg:w-[5.5vw] lg:max-h-[84px] lg:max-w-[84px] max-md:landscape:h-12 max-md:landscape:w-12">
               <Image
-                src="/assets/Img/sponsors/Logo_Pharmacycouncil_2568_2-2_Artboard 2.png"
+                src="/assets/Img/logo/Logo_Pharmacycouncil_White.png"
                 alt="The Pharmacy Council of Thailand"
                 fill
                 sizes="112px"
-                className="object-contain drop-shadow-[0_0_14px_rgba(255,255,255,0.18)]"
+                className="scale-[0.88] object-contain drop-shadow-[0_0_14px_rgba(255,255,255,0.18)]"
               />
             </div>
             <div className="relative h-16 w-16 sm:h-[5.25rem] sm:w-[5.25rem] md:portrait:h-[4.6rem] md:portrait:w-[4.6rem] lg:h-[5.5vw] lg:w-[5.5vw] lg:max-h-[84px] lg:max-w-[84px] max-md:landscape:h-12 max-md:landscape:w-12">
               <Image
-                src="/assets/Img/sponsors/Logo_ราชวิทยาลัยเภสัชกรรมแห่งประเทศไทย_2-02.png"
+                src="/assets/Img/logo/Logo_ราชวิทยาลัยสีขาว.png"
                 alt="Royal College of Pharmacy of Thailand"
                 fill
                 sizes="112px"
@@ -104,29 +104,33 @@ export default function Hero() {
             </h1>
           </div>
 
-          <div className="mt-7 grid gap-6 text-white sm:grid-cols-[0.75fr_1.25fr] lg:mt-[2.8vh] lg:gap-6 md:portrait:mt-[4.1vh] md:portrait:grid-cols-[0.7fr_1.3fr] md:portrait:gap-8 min-[1280px]:portrait:mt-[2.8vh] max-md:landscape:mt-4 max-md:landscape:grid-cols-[0.75fr_1.25fr] max-md:landscape:gap-4">
-            <div className="flex items-start gap-3">
-              <CalendarDays className="mt-1 h-6 w-6 shrink-0 text-[#168fff] md:portrait:h-7 md:portrait:w-7 lg:h-5 lg:w-5 max-md:landscape:h-4 max-md:landscape:w-4" />
-              <div className="uppercase">
-                <p className="text-[2rem] font-black leading-none tracking-[0.04em] text-[#168fff] sm:text-[2.45rem] md:portrait:text-[2.55rem] lg:text-[1.95rem] max-md:landscape:text-[1.35rem]">
-                  29-30
-                </p>
-                <p className="mt-1 text-[0.82rem] font-bold leading-none tracking-[0.08em] text-[#168fff] sm:text-[0.9rem] md:portrait:text-[0.92rem] lg:text-[0.76rem] max-md:landscape:text-[0.58rem]">
-                  October
-                </p>
-                <p className="mt-1 text-[2rem] font-black leading-none tracking-[0.04em] sm:text-[2.45rem] md:portrait:text-[2.55rem] lg:text-[1.95rem] max-md:landscape:text-[1.35rem]">
-                  2026
+          <div className="mt-7 flex w-full max-w-[860px] flex-col gap-4 text-white sm:flex-row sm:items-center sm:gap-6 lg:mt-[2.8vh] lg:max-w-[780px] lg:gap-5 md:portrait:mt-[4.1vh] md:portrait:max-w-none md:portrait:gap-7 min-[1280px]:portrait:mt-[2.8vh] max-md:landscape:mt-4 max-md:landscape:flex-row max-md:landscape:items-center max-md:landscape:gap-3">
+            <div className="flex min-w-0 items-center gap-3 max-md:landscape:gap-2">
+              <CalendarDays aria-hidden="true" className="h-5 w-5 shrink-0 text-[#168fff] md:portrait:h-6 md:portrait:w-6 lg:h-5 lg:w-5 max-md:landscape:h-4 max-md:landscape:w-4" />
+              <div className="min-w-0 uppercase">
+                <p className="flex flex-nowrap items-baseline gap-2 whitespace-nowrap leading-none text-[#168fff] sm:gap-2.5 max-md:landscape:gap-1.5">
+                  <span className="text-[1.12rem] font-black tracking-[0.14em] sm:text-[1.35rem] md:text-[1.48rem] md:portrait:text-[1.62rem] lg:text-[1.12rem] max-md:landscape:text-[0.78rem]">
+                    29-30
+                  </span>
+                  <span className="text-[1.12rem] font-black tracking-[0.14em] sm:text-[1.35rem] md:text-[1.48rem] md:portrait:text-[1.62rem] lg:text-[1.12rem] max-md:landscape:text-[0.78rem]">
+                    October
+                  </span>
+                  <span className="text-[1.12rem] font-black tracking-[0.14em] text-white sm:text-[1.35rem] md:text-[1.48rem] md:portrait:text-[1.62rem] lg:text-[1.12rem] max-md:landscape:text-[0.78rem]">
+                    2026
+                  </span>
                 </p>
               </div>
             </div>
 
-            <div className="flex items-start gap-3">
-              <MapPin className="mt-1 h-6 w-6 shrink-0 text-[#168fff] md:portrait:h-7 md:portrait:w-7 lg:h-5 lg:w-5 max-md:landscape:h-4 max-md:landscape:w-4" />
-              <div>
-                <p className="text-[1.25rem] font-bold uppercase leading-tight tracking-[0.13em] text-[#168fff] sm:text-[1.55rem] md:text-[1.7rem] md:portrait:text-[1.85rem] lg:text-[1.25rem] max-md:landscape:text-[0.9rem]">
+            <div className="hidden h-11 w-px shrink-0 bg-gradient-to-b from-transparent via-white/28 to-transparent sm:block max-md:landscape:block max-md:landscape:h-8" />
+
+            <div className="flex min-w-0 items-center gap-3 max-md:landscape:gap-2">
+              <MapPin aria-hidden="true" className="h-5 w-5 shrink-0 text-[#168fff] md:portrait:h-6 md:portrait:w-6 lg:h-5 lg:w-5 max-md:landscape:h-4 max-md:landscape:w-4" />
+              <div className="min-w-0 uppercase">
+                <p className="whitespace-nowrap text-[1.12rem] font-black leading-none tracking-[0.14em] text-[#168fff] sm:text-[1.35rem] md:text-[1.48rem] md:portrait:text-[1.62rem] lg:text-[1.12rem] max-md:landscape:text-[0.78rem]">
                   Jupiter Room 4-13
                 </p>
-                <p className="mt-3 text-sm font-bold uppercase leading-relaxed tracking-[0.07em] text-white/90 sm:text-base md:portrait:text-[1.05rem] lg:mt-2 lg:text-[0.9rem] max-md:landscape:mt-1 max-md:landscape:text-[0.68rem]">
+                <p className="mt-2 text-sm font-black leading-snug tracking-[0.08em] text-white/90 sm:text-[0.9rem] md:portrait:text-[1rem] lg:text-[0.78rem] max-md:landscape:mt-1 max-md:landscape:text-[0.58rem]">
                   Impact Muang Thong Thani
                   <span className="block">Nonthaburi, Thailand</span>
                 </p>
